@@ -1,3 +1,7 @@
+export const enum CoordinatesEnum {
+  MAX_HEIGHT = 10,
+  MAX_WIDTH = 10,
+}
 export class Robot {
   direction: string;
   yCoordinate: number;
@@ -21,7 +25,7 @@ export class Robot {
       }
 
       if (commands.charAt(i) === 'F') {
-        this.yCoordinate++;
+        this.yCoordinate = (this.yCoordinate + 1) % CoordinatesEnum.MAX_HEIGHT;
       }
     }
     return `0 ${this.yCoordinate} ${this.direction}`;

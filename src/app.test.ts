@@ -32,6 +32,8 @@ describe('Martina Robot should ...', () => {
 
   describe.each([
     ['F', '0 0 N', '0 1 N'],
+    ['FFFFFFFFFF', '0 0 N', '0 0 N'],
+    ['FFFFFFFFFFFFFFF', '0 0 N', '0 5 N'],
   ])('move next', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
