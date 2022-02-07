@@ -1,4 +1,12 @@
-import { DirectionsMapping } from "./robot";
+import { DirectionsEnum } from "./directions.enum";
+
+//Created this for easier mapping of directions by setting their left and right for example NORTH('N', 'W', 'E')
+export const DirectionsMapping = {
+  [DirectionsEnum.NORTH]: [DirectionsEnum.WEST, DirectionsEnum.EAST],
+  [DirectionsEnum.EAST]: [DirectionsEnum.NORTH, DirectionsEnum.SOUTH],
+  [DirectionsEnum.SOUTH]: [DirectionsEnum.EAST, DirectionsEnum.WEST],
+  [DirectionsEnum.WEST]: [DirectionsEnum.SOUTH, DirectionsEnum.NORTH]
+};
 
 export class Direction {
   private value: string;
