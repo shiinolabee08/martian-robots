@@ -1,8 +1,11 @@
 export class Robot {
   direction: string;
+  yCoordinate: number;
 
   constructor(initialDirection: string){
-    this.direction = initialDirection.split(' ')[2];
+    const splitInitialDirection = initialDirection.split(' ');
+    this.direction = splitInitialDirection[2];
+    this.yCoordinate = parseInt(splitInitialDirection[1]);
   }
 
   execute(commands: string): string {
@@ -16,8 +19,12 @@ export class Robot {
       if (commands.charAt(i) === 'L') {
         this.direction = this.rotateLeft();
       }
+
+      if (commands.charAt(i) === 'F') {
+        this.yCoordinate++;
+      }
     }
-    return `0 0 ${this.direction}`;
+    return `0 ${this.yCoordinate} ${this.direction}`;
   }
 
   rotateRight(): string {
