@@ -10,7 +10,22 @@ describe('Martina Robot should ...', () => {
   ])('rotate right', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands}`, () => {
+    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+      expect(robot.execute(commands)).toStrictEqual(currentPosition);
+    });
+  });
+
+  describe.each([
+    ['0 0 L', '0 0 N', '0 0 W'],
+    ['0 0 LL', '0 0 N', '0 0 S'],
+    ['0 0 LLL', '0 0 N', '0 0 E'],
+    ['0 0 LLLL', '0 0 N', '0 0 N'],
+    ['0 0 L', '0 0 E', '0 0 N'],
+    ['0 0 LL', '0 0 E', '0 0 W'],
+  ])('rotate left', (commands, initialPosition, currentPosition) => {
+    const robot = new Robot(initialPosition);
+
+    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     })
   })

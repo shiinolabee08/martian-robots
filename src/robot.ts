@@ -12,6 +12,10 @@ export class Robot {
       if (commands.charAt(i) === 'R') {
         this.direction = this.rotateRight();
       }
+
+      if (commands.charAt(i) === 'L') {
+        this.direction = this.rotateLeft();
+      }
     }
     return `0 0 ${this.direction}`;
   }
@@ -23,6 +27,18 @@ export class Robot {
       return 'S';
     } else if (this.direction === 'N') {
       return 'E';
+    } else {
+      return 'N';
+    }
+  }
+
+  rotateLeft(): string {
+    if (this.direction === 'S') {
+      return 'E';
+    } else if (this.direction === 'W') {
+      return 'S';
+    } else if (this.direction === 'N') {
+      return 'W';
     } else {
       return 'N';
     }
