@@ -42,7 +42,7 @@ describe('Martina Robot should ...', () => {
     });
   });
 
-  /* describe.each([
+  describe.each([
     ['RF', '0 0 N', '1 0 E'],
   ])('move right', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
@@ -50,5 +50,5 @@ describe('Martina Robot should ...', () => {
     test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     })
-  }) */
+  })
 });

@@ -1,8 +1,10 @@
+import { Coordinate } from "./coordinate";
 import { Direction } from "./direction";
 import { DirectionsEnum } from "./directions.enum";
 
 export const enum CoordinatesEnum {
   MAX_HEIGHT = 10, //temporarily set 10 instead of 50 for testing purposes
+  MAX_WIDTH = 10, //temporarily set 10 instead of 50 for testing purposes
 };
 
 //Created this for easier mapping of directions by setting their left and right for example NORTH('N', 'W', 'E')
@@ -15,22 +17,19 @@ export const DirectionsMapping = {
 export class Robot {
   direction: string;
   eDirection: Direction;
-  yCoordinate: number;
-  xCoordinate: number;
+  coordinate: Coordinate;
 
   constructor(initialDirection: string){
     const splitInitialDirection = initialDirection.split(' ');
 
     this.direction = splitInitialDirection[2];
+    this.coordinate = new Coordinate(parseInt(splitInitialDirection[0]), parseInt(splitInitialDirection[1]));
 
     this.eDirection = new Direction(
       splitInitialDirection[2],
       DirectionsMapping[splitInitialDirection[2]][0],
       DirectionsMapping[splitInitialDirection[2]][1]
     );
-
-    this.yCoordinate = parseInt(splitInitialDirection[1]);
-    this.xCoordinate = parseInt(splitInitialDirection[0]);
   }
 
   execute(commands: string): string {
@@ -50,13 +49,32 @@ export class Robot {
       }
 
       if (commands.charAt(i) === 'F') {
-        this.yCoordinate = this.moveUp();
+        this.coordinate = this.moveUp();
       }
     }
-    return `${this.xCoordinate} ${this.yCoordinate} ${this.direction}`;
+    return `${this.coordinate.getX()} ${this.coordinate.getY()} ${this.direction}`;
   }
 
-  moveUp(): number {
-    return (this.yCoordinate + 1) % CoordinatesEnum.MAX_HEIGHT;
+  moveUp(): Coordinate {
+    let x = this.coordinate.getX();
+    let y = this.coordinate.getY();
+
+    if (this.direction === 'N') {
+      y = (y + 1) % CoordinatesEnum.MAX_HEIGHT;
+    }
+
+    if (this.direction === 'E') {
+      x = (x + 1) % CoordinatesEnum.MAX_WIDTH;
+    }
+
+    if (this.direction === 'S') {
+      y = (y > 0) ? y - 1 : CoordinatesEnum.MAX_HEIGHT - 1;
+    }
+
+    if (this.direction === 'W') {
+      x = (x  > 0) ? x - 1 : CoordinatesEnum.MAX_WIDTH - 1;
+    }
+
+    return new Coordinate(x, y);
   }
 }
