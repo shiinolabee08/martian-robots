@@ -22,3 +22,21 @@ orientation and maintains the same orientation.</li>
   <li>Robot that moves "off" when reaching edge of the grid and will be "LOST" forever and tag that edge as a "SCENT" thats prohibits the future robots from dropping off the world at the same grid point.</li>
   <li>
 </ul>
+
+## Example
+Sample Input
+```
+5 3
+1 1 E
+RFRFRFRF
+```
+3 2 N
+FRRFLLFFRRFLL
+```
+0 3 W
+LLFFFLFLFL
+
+Expected Output
+1 1 E
+3 3 N LOST
+2 3 S
