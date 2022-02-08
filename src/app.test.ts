@@ -54,7 +54,7 @@ describe('Martina Robot should ...', () => {
   });
 
   describe.each([
-    ['LF', '0 0 N', '1 0 W'],
+    ['LF', '0 0 N', '9 0 W'],
     ['LFFFFF', '0 0 N', '5 0 W'],
   ])('should move left', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
@@ -79,7 +79,7 @@ describe('Martina Robot should ...', () => {
   describe.each([
     ['RFRFRFRF', '1 1 E', '1 1 E'],
     ['FRRFLLFFRRFLL', '3 2 N', '3 3 N'],
-    ['LLFFFLFLFL', '0 3 W', '2 3 S'],
+    ['LLFFFLFLFL', '0 3 W', '2 4 S'],
   ])('should results to..', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
