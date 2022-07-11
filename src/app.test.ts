@@ -10,7 +10,7 @@ describe('Martina Robot should ...', () => {
   ])('should rotate right', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -25,7 +25,7 @@ describe('Martina Robot should ...', () => {
   ])('should rotate left', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -37,7 +37,7 @@ describe('Martina Robot should ...', () => {
   ])('should move up', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -48,7 +48,7 @@ describe('Martina Robot should ...', () => {
   ])('should move right', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -59,7 +59,7 @@ describe('Martina Robot should ...', () => {
   ])('should move left', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -70,7 +70,7 @@ describe('Martina Robot should ...', () => {
   ])('should wrap from the right to left when moving east', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     });
   });
@@ -83,7 +83,7 @@ describe('Martina Robot should ...', () => {
   ])('should results to..', (commands, initialPosition, currentPosition) => {
     const robot = new Robot(initialPosition);
 
-    test(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
+    it(`returns ${currentPosition} when ${commands} and when starting at ${initialPosition}`, () => {
       expect(robot.execute(commands)).toStrictEqual(currentPosition);
     })
   })

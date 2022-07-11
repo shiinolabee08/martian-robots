@@ -10,6 +10,7 @@ export const enum GridsEnum {
 export class Grid {
   private maxHeight: number;
   private maxWidth: number;
+  private scents: Coordinate[];
 
   constructor() {
     this.maxHeight = GridsEnum.MAX_HEIGHT;
@@ -36,6 +37,15 @@ export class Grid {
       x = (x > 0) ? x - 1 : this.maxWidth - 1;
     }
 
-    return new Coordinate(x, y);
+    const newCoordinate =  new Coordinate(x, y);
+    /* const checkNewCoordinateIfIncludedInScents = this.scents.find((coordinate) => coordinate.equals(newCoordinate));
+
+    if (checkNewCoordinateIfIncludedInScents) {
+
+    } {
+
+    } ?  : this.scents.push(newCoordinate) ; */
+
+    return newCoordinate;
   }
 }

@@ -14,4 +14,8 @@ export class Coordinate{
   getY(): number {
     return this.yCoordinate;
   }
+
+  equals(coordinate: Coordinate) {
+    return this.getX() === coordinate.getX() && this.getY() === coordinate.getY();
+  }
 }
